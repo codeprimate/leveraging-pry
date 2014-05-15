@@ -1,0 +1,57 @@
+.jumbotron
+  .row
+    %h1 4. Crawling the Stack
+
+  .row
+    .col-md-6
+      %p
+        %code pry-stack_explorer
+        lets us traverse the call stack
+        %sup &dagger;
+      %p
+        Commands:
+        %kbd show-stack
+        ,
+        %kbd frame
+        ,
+        %kbd up
+        ,
+        %kbd down
+  .row
+    .col-md-4
+      %code app/controllers/concerns/buggy_module.rb
+      :preserve
+        <pre class="language-ruby"><code>def chain3(val)
+          out = val.to_i
+          binding.pry
+          return out
+        end
+        </code></pre>
+
+    .col-md-8
+      :preserve
+        <pre class=""><code>[]1] pry(#<HomeController>)> show-stack
+        Showing all accessible frames in stack (79 in total):
+        --
+        => #0  chain3 &lt;BuggyModule#chain3(val)>
+           #1 [block]   block in run &lt;PryByebug::Processor#run(initial=?, &block)>
+           #2 [method]  run &lt;PryByebug::Processor#run(initial=?, &block)>
+           #3 [method]  start_with_pry_byebug &lt;Pry.start_with_pry_byebug(target=?, options=?)>
+           #4 [method]  pry &lt;Object#pry(object=?, hash=?)>
+           #5 [method]  chain3 &lt;BuggyModule#chain3(val)>
+           #6 [method]  chain2 &lt;BuggyModule#chain2(val)>
+           #7 [method]  chain1 &lt;BuggyModule#chain1(val)>
+           #8 [method]  foo_method &lt;BuggyModule#foo_method()>
+           #9 [method]  dostuff &lt;HomeController#dostuff()> 
+        </code></pre>
+
+
+  .row
+    %sup 
+      &dagger; http://en.wikipedia.org/wiki/Call_stack
+
+
+  .row
+    %p
+      =link_to "Onward!", "/about", class: "btn btn-primary btn-lg"
+      =link_to "Back", "/part3", class: "btn btn-default btn-lg"

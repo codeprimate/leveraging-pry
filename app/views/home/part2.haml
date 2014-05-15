@@ -1,0 +1,27 @@
+.jumbotron
+  .row
+    %h1 2. Looking Around
+
+  .row
+    %p Here we are in the Pry console
+  .row
+    :preserve
+      <pre class="language-ruby"><code>
+        Frame number: 0/91
+        From: /Users/pmorgan/Code/leveraging-pry/app/controllers/home_controller.rb @ line 19 HomeController#dostuff:
+
+            16: def dostuff
+            17:   foo_method
+            18:   a = 1
+         => 19:   binding.pry
+            20:   @result = is_magic?(@magic) ? "Success" : "Failure"
+            21:   render layout: false
+            22: end
+
+        [1] pry(#<HomeController>)>
+      </code></pre>
+
+  .row
+    %p
+      =link_to "Onward!", "/part3", class: "btn btn-primary btn-lg"
+      =link_to "Back", "/part1", class: "btn btn-default btn-lg"

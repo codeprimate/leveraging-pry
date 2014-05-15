@@ -1,5 +1,41 @@
-%h1 Part 1
-%h3 
-  Result:
-  =@result
+.jumbotron
+  %h1 1. The first crack open
 
+  .row
+    .col-md-6
+      .row
+        #result_notification=alert_for_result(@result)
+        =form_tag("/dostuff", id: "magic_form", class: "form-inline", role: "form", method: "post", remote: true) do
+          =hidden_field_tag "authenticity_token", form_authenticity_token
+          =label_tag "Enter stuff"
+          =text_field_tag "Magic", @magic, id: "magic_input", class: "form-control", name: "magic", placeholder: "Magic"
+          =submit_tag "Submit", id: "part1_submit", class: "btn btn-primary"
+          %a#clear_magic.btn.btn-default Clear
+      .row
+        %p What is going on here?
+        %p
+          Let's add a 
+          %code binding.pry
+          %sup &dagger;
+          statement and submit something.
+        %p
+          %small
+            %sup &dagger;
+            That's how we add a "breakpoint" and tell Rails to open a Pry console
+        %p
+          =link_to "Onward!", "/part2", class: "btn btn-primary btn-lg"
+          =link_to "Back", "/installation", class: "btn btn-default btn-lg"
+    .col-md-6
+      %p
+        %code app/controllers/home_controller.rb
+      :preserve
+        <pre><code class="language-ruby">
+          # this is a rather dull method
+          def part1
+            foo_method
+            a = 1
+            binding.pry  # enter the rabbit hole
+            @result = is_magic?(@magic) ? "Success" : "Failure"
+            render layout: false
+          end
+        </code></pre>

@@ -1,15 +1,16 @@
 class HomeController < ApplicationController
-  respond_to :html, :json
-
-  def index
-  end
+  respond_to :html, :js
 
   def part1
+    @result = "Failure"
+  end
+
+  # this is a rather dull method
+  def dostuff
     foo_method
     a = 1
-    binding.pry
     @result = is_magic?(@magic) ? "Success" : "Failure"
-    respond_to :html
+    render layout: false
   end
 
 end

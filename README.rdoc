@@ -1,28 +1,18 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the application used for exercises in the Leveraging Pry AoR talk.
 
-Things you may want to cover:
+== Starting
 
-* Ruby version
+    $ bundle install
+    $ bundle exec rails server start
 
-* System dependencies
+Open http://localhost:3000/ in your browser.
 
-* Configuration
+== Copyright
+(c)2014 Patrick Morgan
 
-* Database creation
+You are free to use this tutorial/application with attribution.
+http://creativecommons.org/licenses/by/4.0/
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Pry, the Pry logo, and other tools are copyright their perspective owners and authors.

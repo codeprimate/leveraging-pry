@@ -1,0 +1,21 @@
+!!! 5
+%html{:lang => 'en'}<>
+  %head
+    %title= content_for?(:title) ? yield(:title) : "Leveraging Pry"
+
+    %link{rel: :stylesheet, type: "text/css", href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}
+    %link{rel: :stylesheet, type: "text/css", href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"}
+    =stylesheet_link_tag "application", media: "screen"
+    =csrf_meta_tags
+
+  %body
+    #header.page-header
+      =render partial: "shared/header"
+    #content
+      =yield
+    #footer
+      =render partial: "shared/footer"
+
+    %script{type: "text/javascript", src: "//code.jquery.com/jquery-1.11.0.min.js"}
+    %script{type: "text/javascript", src: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
+    =javascript_include_tag "application"

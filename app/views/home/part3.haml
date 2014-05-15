@@ -1,0 +1,63 @@
+.jumbotron
+  .row
+    %h1 3. More Sights
+
+  .row
+    %p
+      Try entering 
+      %kbd show-method foo_method
+      and
+      %kbd show-method is_magic?
+      %br
+      %small (Tab completion is a great way to see what methods are available)
+  .row
+    .col-md-6
+      :preserve
+        <pre class="language-ruby"><code>
+        [1] pry(#&lt;HomeController&gt;)&gt; show-method foo_method
+
+          From: /Users/pmorgan/Code/leveraging-pry/app/controllers/concerns/buggy_module.rb @ line 10:
+          Owner: BuggyModule
+          Visibility: public
+          Number of lines: 3
+
+          def foo_method
+            @magic = params[:magic]
+          end
+        </code></pre>
+    .col-md-6
+      :preserve
+        <pre class="language-ruby"><code>
+        [1] pry(#&lt;HomeController&gt;)&gt; show-method is_magic?
+
+        From: /Users/pmorgan/Code/leveraging-pry/app/controllers/concerns/buggy_module.rb @ line 5:
+        Owner: BuggyModule
+        Visibility: public
+        Number of lines: 3
+
+        def is_magic?(val)
+          val.to_i == 42
+        end
+        </code></pre>
+  .row
+    %p
+      Forget swapping back to the editor when you can look inside modules and classes with
+      %kbd show-source BuggyModule
+    %p
+      More fun:
+      %kbd help 
+      ,
+      %kbd ls -li
+      ,
+      %kbd next
+      ,
+      %kbd prev
+      ,
+      %kbd continue
+      ,
+      %kbd exit
+
+  .row
+    %p
+      =link_to "Onward!", "/part4", class: "btn btn-primary btn-lg"
+      =link_to "Back", "/part2", class: "btn btn-default btn-lg"

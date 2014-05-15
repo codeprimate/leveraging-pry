@@ -1,0 +1,41 @@
+.jumbotron
+  %h1 Opening the Toolbox
+
+  %p
+    Find your Gemfile and let 
+    %code bundler
+    do the work for you. 
+
+  %p
+    Add the following to your 
+    %code Gemfile
+    &hellip;
+
+  :preserve
+    <pre style="width: 60%;">
+    <code class="language-ruby">
+    group :development do
+      gem 'pry'
+      gem 'pry-byebug'
+      gem 'pry-stack_explorer'
+      gem 'pry-rails'
+      gem 'pry-remote'
+    end
+    </code>
+    </pre>
+
+  %p
+    %small
+      (these gems are also useful in production, so don't be afraid to add them to your
+      %code :production
+      group as well).
+
+  %p
+    &hellip; then go to your terminal and
+    %kbd
+      bundle install
+  %p
+    That's it!
+  %p
+    =link_to "Onward!", "/part1", class: "btn btn-primary btn-lg"
+    =link_to "Back", "/", class: "btn btn-default btn-lg"

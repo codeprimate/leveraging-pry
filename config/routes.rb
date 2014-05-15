@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#index'
-  get '/part1' => 'home#part1', as: :part1
+  root "home#index"
+  get "/:action", controller: "home"
+  post "/:action", controller: "home"
 end
